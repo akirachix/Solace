@@ -1,13 +1,11 @@
 package com.yasmin.solace_application
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class SplashActivity : AppCompatActivity() {
+class SignupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        startActivity(Intent(this,OnboardingFriends::class.java))
+        setContentView(R.layout.activity_signup)
     }
 }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Solace-Application</string>
+    <string name="don_t_have_an_account_signup">Don\'t have an account?<u>Signup</u></string>
 </resources>
