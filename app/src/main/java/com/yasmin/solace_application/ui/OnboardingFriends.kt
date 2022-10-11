@@ -1,4 +1,4 @@
-package com.yasmin.solace_application
+package com.yasmin.solace_application.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -12,9 +12,9 @@ class OnboardingFriends : AppCompatActivity() {
         binding= ActivityOnboardingFriendsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnButton.setOnClickListener {
-            startActivity(Intent(this,OnboardingMeditation::class.java))
+            startActivity(Intent(this, OnboardingMeditation::class.java))
         }
         binding.tvSkip.setOnClickListener {
-            startActivity(Intent(this,LoginActivity::class.java))}
+            startActivity(Intent(this, LoginActivity::class.java))}
     }
 }

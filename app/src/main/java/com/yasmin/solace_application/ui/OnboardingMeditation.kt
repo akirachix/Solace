@@ -1,4 +1,4 @@
-package com.yasmin.solace_application
+package com.yasmin.solace_application.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
