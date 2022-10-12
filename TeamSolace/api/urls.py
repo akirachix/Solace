@@ -1,15 +1,9 @@
-from django.db import router
-from django.urls import path,include
-from rest_framework import routers
-from user.models import ChatBot
-from.views import ChatBotViewsets, UserViewsets
-
-router=routers.DefaultRouter()
-router.register("user",UserViewsets)
-router.register("chatbot",ChatBotViewsets)
+from .views import RegisterAPI
+from django.urls import path
+from knox import views as knox_views
+from .views import LoginAPI
 
 urlpatterns = [
-    path("",include(router.urls))
-    
-
+    path('register/', RegisterAPI.as_view(), name='register'),
+    path('login/', LoginAPI.as_view(), name='login'),
 ]

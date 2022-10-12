@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-em1g*(y(5ea_v70wvntfh^365k2q)yzlj-t!l!oy)9g50ky0u0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'ac96-197-232-143-191.eu.ngrok.io'
+]
 
 
 # Application definition
@@ -38,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user',
+    'rest_framework',
+    'knox',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -83,12 +89,21 @@ WSGI_APPLICATION = 'TeamSolace.wsgi.application'
 DATABASES={
     "default":{
         "ENGINE":"django.db.backends.postgresql",
-        "NAME":"teamsolace",
-        "USER":"sola_ce",
-        "PASSWORD":"lace",
+        "NAME":"anxiety",
+        "USER":"postgres",
+        "PASSWORD":"anxiety",
         "HOST":"localhost",
         "PORT":"5432",
+        
     }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'knox.auth.TokenAuthentication',
+    ]
 }
 
 # Password validation
