@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from user.models import  Count_down, User
+from user.models import  Meditation,User
 
 # Register your models here.
 class UserAdmin(admin.ModelAdmin):
@@ -8,8 +8,8 @@ class UserAdmin(admin.ModelAdmin):
     search_fields=("first_name","last_name","email","password")
 admin.site.register(User,UserAdmin)
 
-class Count_downAdmin(admin.ModelAdmin):
-    list_display=("timer",)
-    search_fields=("timer",)
-admin.site.register(Count_down,Count_downAdmin)
+class MeditationAdmin(admin.ModelAdmin):
+    list_display=("duration","meditation_type")
+    search_fields=("duration","meditation_type")
+admin.site.register(Meditation,MeditationAdmin)
 
