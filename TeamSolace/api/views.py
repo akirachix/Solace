@@ -7,6 +7,14 @@ from rest_framework.authtoken.serializers import AuthTokenSerializer
 from knox.views import LoginView as KnoxLoginView
 
 
+class ChatbotAPI(KnoxLoginView):
+    permission_classes = (permissions.AllowAny,)
+    def post(self, request, format=None):
+        serializer = AuthTokenSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        login(request, user)
+        return super(ChatbotAPI, self).post(request, format=None)
 
 class LoginAPI(KnoxLoginView):
     permission_classes = (permissions.AllowAny,)

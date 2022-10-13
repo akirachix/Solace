@@ -10,6 +10,16 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'first_name','last_name', 'email','password')
+
+        
+class ChatbotSerializer(serializers.ModelSerializer):
+        write_only=True,
+        required=True,
+        style={"input_type": "user_input", "placeholder": "Response"}
+
+        class Meta:
+          model = User
+        fields = ('user_input', 'response')        
 # Register Serializer
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:

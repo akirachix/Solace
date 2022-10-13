@@ -1,4 +1,5 @@
 from django.contrib import admin
+from simple_chatbot.responses import GenericRandomResponse
 
 from user.models import  Meditation,User
 
@@ -12,4 +13,8 @@ class MeditationAdmin(admin.ModelAdmin):
     list_display=("duration","meditation_type")
     search_fields=("duration","meditation_type")
 admin.site.register(Meditation,MeditationAdmin)
+
+
+
+
 

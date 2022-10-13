@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'knox',
     'api',
+  
 ]
 
 MIDDLEWARE = [
@@ -89,12 +90,11 @@ WSGI_APPLICATION = 'TeamSolace.wsgi.application'
 DATABASES={
     "default":{
         "ENGINE":"django.db.backends.postgresql",
-        "NAME":"anxiety",
-        "USER":"postgres",
-        "PASSWORD":"anxiety",
+        "NAME":"teamsolace",
+        "USER":"sola_ce",
+        "PASSWORD":"lace",
         "HOST":"localhost",
         "PORT":"5432",
-        
     }
 }
 
