@@ -5,8 +5,10 @@ import android.icu.util.MeasureUnit.EM
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns.EMAIL_ADDRESS
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.util.PatternsCompat.EMAIL_ADDRESS
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.yasmin.solace_application.ViewModel.UserViewModel
 import com.yasmin.solace_application.databinding.ActivitySignUpBinding
@@ -27,6 +29,11 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         binding.btnSignup.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+
+        }
+        binding.tvLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
 
@@ -76,5 +83,15 @@ class SignUpActivity : AppCompatActivity() {
             userViewModel.registerUser(registerRequest)
 
         }
+    }
+    override fun onResume() {
+        super.onResume()
+        userViewModel.registerResponseLiveData.observe(this, Observer { RegisterResponse->
+            Toast.makeText(baseContext,RegisterResponse.message,Toast.LENGTH_LONG).show()
+            startActivity(Intent(this,LoginActivity::class.java))
+        })
+        userViewModel.registererrorLiveData.observe(this, Observer { error->
+            Toast.makeText(baseContext,error,Toast.LENGTH_LONG).show()
+        })
     }
 }

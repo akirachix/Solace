@@ -45,7 +45,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="130dp"
-        android:text="            Create your account"
+        android:text="Create your account"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -58,6 +58,8 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="351dp"
         android:layout_height="wrap_content"
+        app:startIconDrawable="@drawable/ic_baseline_person_24"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
         app:boxCornerRadiusBottomEnd="20sp"
@@ -66,6 +68,7 @@
         app:boxCornerRadiusTopStart="20sp"
         app:boxStrokeColor="#364BBF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -80,6 +83,8 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="351dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:startIconDrawable="@drawable/ic_baseline_email_24"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         app:boxCornerRadiusBottomEnd="20sp"
@@ -88,6 +93,7 @@
         app:boxCornerRadiusTopStart="20sp"
         app:boxStrokeColor="#394CB8"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilName">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -102,6 +108,8 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="351dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         app:boxCornerRadiusBottomEnd="20sp"
@@ -110,6 +118,7 @@
         app:boxCornerRadiusTopStart="20sp"
         app:boxStrokeColor="#3043AF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilEmail"
         app:passwordToggleEnabled="true">
 
@@ -125,8 +134,10 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="351dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
 
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         app:boxCornerRadiusBottomEnd="20sp"
         app:boxCornerRadiusBottomStart="20sp"
@@ -134,6 +145,7 @@
         app:boxCornerRadiusTopStart="20sp"
         app:boxStrokeColor="#253BB3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilPassword"
         app:passwordToggleEnabled="true">
 
