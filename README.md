@@ -1,8 +1,7 @@
 **PROJECT NAME:SOLACE**
 
-**ABOUT THE PROJECT**
-
-Our project is in form of a mobile application that aims to assist Gen Z in Kenya manage anxiety disorder with resources such as guided meditation, breathing exercies and other envidence based methods in order to improve their quality of life.
+**Project Description**
+Anxiety disorders have been found to be the most prevalent mental illness in Kenya. Generation Z is the one that is most affected by anxiety. By developing a smartphone application, Solace's seeks to protect Kenya's Gen Z population from anxiety illnesses. With tools like guided meditation, breathing exercises, and other evidence-based techniques, the mobile application will help Gen Z in Kenya manage their anxiety illness and enhance their quality of life.
 
 **TARGET USERS**
 
