@@ -22,9 +22,24 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         this.binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.btnLogin.setOnClickListener { validateLogin()}
-        castView()
+//        binding.btnLogin.setOnClickListener {
+//            validateLogin()
+//            val intent=Intent(this,HomeActivity::class.java)
+//            startActivity(intent)
+//        }
+        binding.tvsignup.setOnClickListener {
+
+            val intent=Intent(this,SignUpActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnLogin.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+
+        }
+
         sharedPrefs = getSharedPreferences("Solace_PREFS", MODE_PRIVATE)
+
     }
     override fun onResume(){
         super.onResume()
@@ -38,10 +53,10 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(baseContext,errorMessage,Toast.LENGTH_LONG).show()
         })
     }
-    fun castView() {
-        binding.btnLogin
-        binding.tvsignup.setOnClickListener { startActivity(Intent(this, SignUpActivity::class.java)) }
-    }
+
+
+
+
     fun validateLogin(){
         var error=false
         var password = binding.etpassword.text.toString()
@@ -75,5 +90,3 @@ class LoginActivity : AppCompatActivity() {
         editor.apply()
     }
 }
-
-

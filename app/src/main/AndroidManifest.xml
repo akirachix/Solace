@@ -13,35 +13,35 @@
         android:theme="@style/Theme.SolaceApplication"
         tools:targetApi="31">
         <activity
-            android:name=".MeditationActivity"
+            android:name=".ui.MeditationActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".HomeActivity"
+            android:name=".ui.HomeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".NotificationFragment"
+            android:name=".ui.NotificationFragment"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".profilefragment"
+            android:name=".ui.ProfileFragment"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".homefragment"
+            android:name=".ui.HomeFragment"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -54,13 +54,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".SignupActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
             android:name=".ui.LoginActivity"
             android:exported="false">
