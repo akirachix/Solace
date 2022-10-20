@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from user.models import Meditation
+
 
 # User Serializer
 class UserSerializer(serializers.ModelSerializer):
@@ -19,7 +21,14 @@ class ChatbotSerializer(serializers.ModelSerializer):
 
         class Meta:
           model = User
-        fields = ('user_input', 'response')        
+        fields = ('user_input', 'response')  
+
+# Meditation serializer 
+class MeditationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Meditation
+        fields = ('duration','meditation_type')
+      
 # Register Serializer
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:

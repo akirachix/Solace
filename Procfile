@@ -1,0 +1,1 @@
+web: gunicorn TeamSolace.wsgi --log-file -

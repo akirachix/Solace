@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,8 +27,6 @@ SECRET_KEY = 'django-insecure-em1g*(y(5ea_v70wvntfh^365k2q)yzlj-t!l!oy)9g50ky0u0
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'ac96-197-232-143-191.eu.ngrok.io'
 ]
 
 
@@ -90,9 +89,9 @@ WSGI_APPLICATION = 'TeamSolace.wsgi.application'
 DATABASES={
     "default":{
         "ENGINE":"django.db.backends.postgresql",
-        "NAME":"teamsolace",
-        "USER":"sola_ce",
-        "PASSWORD":"lace",
+        "NAME":"anxiety",
+        "USER":"postgres",
+        "PASSWORD":"anxiety",
         "HOST":"localhost",
         "PORT":"5432",
     }
@@ -146,3 +145,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+django_heroku.settings(locals())

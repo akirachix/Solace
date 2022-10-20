@@ -1,6 +1,4 @@
 from django.contrib import admin
-from simple_chatbot.responses import GenericRandomResponse
-
 from user.models import  Meditation,User
 
 # Register your models here.
