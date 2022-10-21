@@ -1,6 +1,7 @@
 package com.yasmin.solace_application.ui
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.icu.util.MeasureUnit.EM
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,10 +18,12 @@ import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
+    lateinit var sharedPrefs:SharedPreferences
     val userViewModel:UserViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPrefs=getSharedPreferences("Solace_PREFS", MODE_PRIVATE)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -28,24 +31,29 @@ class SignUpActivity : AppCompatActivity() {
             validateSignup()
         }
 
-        binding.btnSignup.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-
-        }
         binding.tvLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
 
         }
+//        binding.btnSignup.setOnClickListener {
+//            val intent = Intent(this, HomeActivity::class.java)
+//            startActivity(intent)
+//        }
+//        castView()
+
     }
+//    fun castView() {
+//        binding.btnSignup
+//        binding.btnSignup.setOnClickListener { startActivity(Intent(this, HomeActivity::class.java)) }
+//    }
 
     fun validateSignup() {
-        var error = false
         binding.tilName.error = null
         binding.tilEmail.error = null
         binding.tilPassword.error = null
         binding.tilConfirm.error = null
+        var error = false
 
         var name = binding.etName.text.toString()
         if (name.isBlank()) {
@@ -81,6 +89,7 @@ class SignUpActivity : AppCompatActivity() {
         if (!error) {
             var registerRequest= RegisterRequest(name, Email,password)
             userViewModel.registerUser(registerRequest)
+            startActivity(Intent(this,LoginActivity::class.java))
 
         }
     }
@@ -89,6 +98,8 @@ class SignUpActivity : AppCompatActivity() {
         userViewModel.registerResponseLiveData.observe(this, Observer { RegisterResponse->
             Toast.makeText(baseContext,RegisterResponse.message,Toast.LENGTH_LONG).show()
             startActivity(Intent(this,LoginActivity::class.java))
+            Toast.makeText(baseContext,RegisterResponse?.message,Toast.LENGTH_LONG).show()
+            startActivity(Intent(this@SignUpActivity,LoginActivity::class.java))
         })
         userViewModel.registererrorLiveData.observe(this, Observer { error->
             Toast.makeText(baseContext,error,Toast.LENGTH_LONG).show()

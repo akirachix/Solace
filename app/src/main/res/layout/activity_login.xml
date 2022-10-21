@@ -5,40 +5,40 @@
     android:id="@+id/pbLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F6F3F3"
+    android:backgroundTint="#F8F6F6"
+    android:backgroundTintMode="multiply"
+    android:foregroundTint="#F3EEEE"
+    android:scrollbarStyle="outsideOverlay"
+    android:visibility="visible"
     tools:context=".ui.LoginActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="-16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image3" />
 
     <TextView
-        android:id="@+id/tvwelcome"
-        android:layout_width="401dp"
-        android:layout_height="37dp"
-        android:text="Welcome back !"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <TextView
         android:id="@+id/tvaccount"
-        android:layout_width="405dp"
-        android:layout_height="42dp"
+        android:layout_width="304dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="115dp"
         android:text="Login to your account"
         android:textAlignment="center"
+        android:textColor="#070707"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintHorizontal_bias="0.904"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvwelcome" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilEmail"
@@ -46,22 +46,29 @@
         android:layout_width="351dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        app:startIconDrawable="@drawable/ic_baseline_email_24"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="#F4F3F3"
+        app:boxBackgroundColor="#404040"
         app:boxCornerRadiusBottomEnd="20sp"
         app:boxCornerRadiusBottomStart="20sp"
         app:boxCornerRadiusTopEnd="20sp"
         app:boxCornerRadiusTopStart="20sp"
+        app:boxStrokeColor="#00ADEF"
+        app:boxStrokeErrorColor="#00ADEF"
+        app:boxStrokeWidth="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvaccount">
+        app:layout_constraintTop_toBottomOf="@+id/tvaccount"
+        app:startIconDrawable="@drawable/ic_baseline_email_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etemail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#F8F3F3"
             android:hint="Email"
+            android:textColor="#0C0C0C"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,7 +80,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="16dp"
-        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        android:foregroundTintMode="multiply"
         app:boxCornerRadiusBottomEnd="20sp"
         app:boxCornerRadiusBottomStart="20sp"
         app:boxCornerRadiusTopEnd="20sp"
@@ -81,13 +88,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilEmail"
-        app:passwordToggleEnabled="true">
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="password" />
+            android:background="#EDEDED"
+            android:backgroundTint="#ECE8E8"
+            android:hint="password"
+            android:textColor="#0E0E0E" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -96,6 +107,7 @@
         android:layout_height="35dp"
         android:text="forgot password?"
         android:textAlignment="viewEnd"
+        android:textColor="#0E0E0E"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.792"
@@ -106,8 +118,12 @@
         android:id="@+id/btnLogin"
         android:layout_width="219dp"
         android:layout_height="71dp"
+        android:layout_marginTop="32dp"
         android:text="Login"
+        android:textAllCaps="false"
+        android:textColorLink="#2D3194"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:cornerRadius="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,10 +133,13 @@
         android:id="@+id/tvsignup"
         android:layout_width="412dp"
         android:layout_height="48dp"
+        android:layout_marginStart="-8dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="52dp"
         android:text="Don't have an account ?SignUp"
         android:textAlignment="center"
+        android:textColor="#0B0B0B"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -128,5 +147,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
         app:layout_constraintVertical_bias="0.267" />
+
+    <TextView
+        android:id="@+id/tvWlcm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-80dp"
+        android:text="Welcome back!"
+        android:textColor="#FAF7F7"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
