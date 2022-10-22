@@ -1,5 +1,6 @@
 package com.yasmin.solace_application.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.yasmin.solace_application.R
@@ -16,8 +17,20 @@ class HomeActivity : AppCompatActivity() {
         castview()
         setupBottomNav()
 
+        binding.tvMeditates.setOnClickListener {
+
+            val intent= Intent(this,MeditationActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnTalk.setOnClickListener {
+
+            val intent= Intent(this,ChatbotActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
+
     fun castview(){
         binding.flFragment
         binding.bottomNavigationView

@@ -8,15 +8,17 @@
 
     <TextView
         android:id="@+id/tvtext1"
-        android:layout_width="358dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="15dp"
-        android:text="Never feel alone again,we got you sorted,find a friend at any time and share how you are feeling everyday."
-        android:textSize="16sp"
+        android:layout_width="355dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="260dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Talk to friends"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivimage" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
     <Button
         android:id="@+id/btnButton"
@@ -35,23 +37,32 @@
         android:id="@+id/tvSkip"
         android:layout_width="86dp"
         android:layout_height="31dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:text="Skip"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnButton" />
 
     <ImageView
-        android:id="@+id/ivimage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="232dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/imageView11"
+        android:layout_width="404dp"
+        android:layout_height="238dp"
+        android:layout_marginBottom="88dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvtext1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/image6" />
+        app:srcCompat="@drawable/chat" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="469dp"
+        android:layout_height="186dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

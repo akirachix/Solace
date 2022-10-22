@@ -38,6 +38,7 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+
         sharedPrefs = getSharedPreferences("Solace_PREFS", MODE_PRIVATE)
 
     }

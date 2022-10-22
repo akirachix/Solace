@@ -3,4 +3,5 @@
     <string name="don_t_have_an_account_signup">Don\'t have an account?<u>Signup</u></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="time">timer</string>
 </resources>
