@@ -1,40 +1,38 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from user.models import Meditation
-
+from user import models
 
 # User Serializer
-class UserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(
-        write_only=True,
-        required=True,
-        style={"input_type": "password", "placeholder": "Password"})
+class ClientSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ('id', 'first_name','last_name', 'email','password')
+        model = models.Client
+        fields = ('first_name','last_name','email','password','gender','profile_picture')
 
-        
+class ClientRegisterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Client
+        fields = ('first_name','last_name','email','password')
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+         user = models.Client.objects.create(validated_data['email'], validated_data['password'])
+         return user       
+
+# Chatbot serializer
 class ChatbotSerializer(serializers.ModelSerializer):
-        write_only=True,
-        required=True,
-        style={"input_type": "user_input", "placeholder": "Response"}
-
         class Meta:
-          model = User
-        fields = ('user_input', 'response')  
+          model = models.Chatbot
+          fields = ('user_input', 'response')  
 
 # Meditation serializer 
-class MeditationSerializer(serializers.ModelSerializer):
+class DiscoveryListSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Meditation
-        fields = ('duration','meditation_type')
+        model = models.DiscoveryList
+        fields = ('meditation_type',)
+
+# Login serializer
+class LoginSerializer(serializers.ModelSerializer):
+        class Meta:
+          model = models.Login
+          fields = ('email', 'password')  
       
-# Register Serializer
-class RegisterSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('id', 'username','last_name', 'email','password')
-        extra_kwargs = {'password': {'write_only': True}}
-    def create(self, validated_data):
-        user = User.objects.create_user(validated_data['username'],validated_data['email'], validated_data['password'])
-        return user

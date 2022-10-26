@@ -18,4 +18,9 @@ from .views import index
 
 urlpatterns = [
     path('', index),
+    # path('chatbot/', ChatbotAPI.as_view(), name='chatbot'),
+    # path('register/', RegisterAPI.as_view(), name='register'),
+    # path('login/', LoginAPI.as_view(), name='login'),
+    # path('meditation/', MeditationAPI.as_view(), name='meditation')
+
 ]

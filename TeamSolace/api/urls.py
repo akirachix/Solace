@@ -1,10 +1,11 @@
-from .views import ChatbotAPI, RegisterAPI
-from django.urls import path
-from knox import views as knox_views
-from .views import LoginAPI
 
+from django.urls import path
+from . import views
 urlpatterns = [
-    path('chatbot/', ChatbotAPI.as_view(), name='register'),
-    path('register/', RegisterAPI.as_view(), name='register'),
-    path('login/', LoginAPI.as_view(), name='login'),
+    path('client/',views.ClientRegisterViewSet.as_view(), name='clients' ),
+    path('login/', views.LoginAPI.as_view(), name='login'),
+    #  path('register/',views.ClientRegisterViewSet.as_view(), name='register'),
+    # path('discovery/',views.DiscoveryListViewset.as_view(), name='discovery' ),
+    # path('user/logout/', knox_views.LogoutView.as_view(), name='logout'),
+    # path('user/logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),
 ]
