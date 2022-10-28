@@ -43,17 +43,6 @@ class ClientRegisterCreateView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = ClientRegisterSerializer
 
-    def post(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        client = serializer.save()
-        User.objects.create_user(email=client.email, password=client.password)
-        return Response({
-        "client": ClientSerializer(client, context=self.get_serializer_context()).data,
-        "token": AuthToken.objects.create(client)[1]
-
-        })
-
 class ClientCreateView(generics.GenericAPIView):
     # permission_classes = (permissions.AllowAny)
 
@@ -70,6 +59,19 @@ class MeditationCreateView(generics.GenericAPIView):
     # permission_classes = (permissions.AllowAny)
     queryset = models.Meditation.objects.all()
     serializer_class = MeditationSerializer
+
+
+# Register API
+class RegisterAPI(generics.GenericAPIView):
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        client = serializer.save()
+        User.objects.create_user(full_name=models.Client.client, password=models.Client.password)
+        return Response({
+        "student": serializers.StudentSerializer(client, context=self.get_serializer_context()).data,
+        # "token": AuthToken.objects.create(student)[1]
+        })
 
 class LoginAPI(AuthToken):
     permission_classes = (permissions.AllowAny)

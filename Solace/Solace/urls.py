@@ -22,8 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('client/', ClientCreateView.as_view(), name='register'),
     path('chatbot/', ChatbotCreateView.as_view(), name='chatbot'),
-    # path('meditation/',MeditationCreateView.as_view(), name='meditation'),
+    path('meditation/',MeditationCreateView.as_view(), name='meditation'),
     # path('login/', LoginAPI.as_view(), name='login'),
 ]
-
-

@@ -5,7 +5,7 @@ from rest_framework import routes
 from .views import *
 
 router =routes.DefaultRouter()
-# router.register(r"Register",RegisterAPI)
+router.register(r"Register",RegisterAPI)
 router.register(r"Client",ClientCreateView)
 router.register(r"Chatbot",ChatbotCreateView)
 router.register(r"Meditation",MeditationCreateView)
