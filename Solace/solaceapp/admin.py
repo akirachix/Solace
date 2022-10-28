@@ -4,8 +4,8 @@ from .models import *
 
 # Register your models here.
 class ClientAdmin(admin.ModelAdmin):
-    list_display=("first_name","last_name","email","password")
-    search_fields=("first_name","last_name","email","password")
+    list_display=("full_name","email","password","gender","profile_picture")
+    search_fields=("full_name","email","password","gender","profile_picture")
 admin.site.register(Client,ClientAdmin)
 
 class MeditationAdmin(admin.ModelAdmin):

@@ -13,9 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
+from solaceApi.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('client/', ClientCreateView.as_view(), name='register'),
+    path('chatbot/', ChatbotCreateView.as_view(), name='chatbot'),
+    # path('meditation/',MeditationCreateView.as_view(), name='meditation'),
+    # path('login/', LoginAPI.as_view(), name='login'),
 ]
+
+
