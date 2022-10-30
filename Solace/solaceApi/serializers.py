@@ -6,18 +6,7 @@ from solaceapp import models
 class ClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Client
-        fields = ('full_name','email','password','gender','profile_picture')
-
-class ClientRegisterSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.Client
-        fields = ('full_name','email','password')
-        extra_kwargs = {'password': {'write_only': True}}
-
-    def create(self, validated_data):
-         user = models.Client.objects.create(validated_data['email'], validated_data['password'])
-         return user       
-
+        fields = ['full_name','email','password','gender','profile_picture']
 # Chatbot serializer
 class ChatbotSerializer(serializers.ModelSerializer):
     class Meta:
@@ -28,7 +17,7 @@ class ChatbotSerializer(serializers.ModelSerializer):
 class MeditationSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Meditation
-        fields = ('meditation_type','count_down','music')
+        fields = ('meditation_type','count_down_timer','music')
 
 # Login serializer
 class LoginSerializer(serializers.ModelSerializer):
@@ -36,3 +25,12 @@ class LoginSerializer(serializers.ModelSerializer):
           model = models.Login
           fields = ('email', 'password')  
 
+# Register Serializer
+class RegisterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Client
+        fields = ( 'full_name','email','password')
+        extra_kwargs = {'password': {'write_only': True}}
+def create(self, validated_data):
+        user = models.Client.objects.create(validated_data['email'], validated_data['password'],)
+        return user

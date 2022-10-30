@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'solaceapp',
     'rest_framework',
-    'knox',
+    'rest_framework.authtoken',
     'solaceApi',
+
 ]
 
 MIDDLEWARE = [
@@ -73,11 +74,12 @@ TEMPLATES = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'knox.auth.TokenAuthentication',
-    ]
+   'DEFAULT_AUTHENTICATION_CLASSES': [
+       'rest_framework.authentication.TokenAuthentication',
+   ],
+   'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+   ],
 }
 
 WSGI_APPLICATION = 'Solace.wsgi.application'

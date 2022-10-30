@@ -1,6 +1,5 @@
 from django.contrib import admin
-
-from .models import *
+from solaceapp.models import Chatbot, Client, CountdownTimer, Meditation, Music
 
 # Register your models here.
 class ClientAdmin(admin.ModelAdmin):
@@ -9,8 +8,8 @@ class ClientAdmin(admin.ModelAdmin):
 admin.site.register(Client,ClientAdmin)
 
 class MeditationAdmin(admin.ModelAdmin):
-    list_display=("meditation_type","count_down","music")
-    search_fields=("meditation_type","count_down","music")
+    list_display=("meditation_type","count_down_timer","music")
+    search_fields=("meditation_type","count_down_timer","music")
 admin.site.register(Meditation,MeditationAdmin)
 
 class ChatbotAdmin(admin.ModelAdmin):

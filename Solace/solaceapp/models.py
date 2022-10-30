@@ -1,11 +1,10 @@
-from statistics import mode
 from django.db import models
 
 # Create your models here.
 class Client(models.Model):
     full_name = models.CharField(max_length=225,null=True)
     email = models.EmailField()
-    password=models.CharField(max_length=15,null=True)
+    password=models.CharField(max_length=15)
     GENDER_CHOICES=(
        ("M", "Male"),
        ("F", "Female"),
@@ -22,7 +21,7 @@ class Meditation(models.Model):
         ('movement','meditaion'),
     )
     meditation_type=models.CharField(max_length=50, choices=meditation_choices,null=True)
-    count_down= models.ForeignKey('CountdownTimer', null=True ,on_delete=models.CASCADE)
+    count_down_timer= models.ForeignKey('CountdownTimer', null=True ,on_delete=models.CASCADE)
     music = models.ForeignKey('Music' , null=True,on_delete=models.CASCADE)
 
 class CountdownTimer(models.Model):
