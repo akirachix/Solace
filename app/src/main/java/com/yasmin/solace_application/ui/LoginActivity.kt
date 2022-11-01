@@ -22,41 +22,30 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         this.binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        binding.btnLogin.setOnClickListener {
-//            validateLogin()
-//            val intent=Intent(this,HomeActivity::class.java)
-//            startActivity(intent)
-//        }
-        binding.tvsignup.setOnClickListener {
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        sharedPrefs = getSharedPreferences(Constant.prefsFiles, MODE_PRIVATE)
 
-            val intent=Intent(this,SignUpActivity::class.java)
-            startActivity(intent)
-        }
         binding.btnLogin.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-
+//            startActivity(Intent(this, HomeActivity::class.java))
+            validateLogin()
         }
-
-        sharedPrefs = getSharedPreferences("Solace_PREFS", MODE_PRIVATE)
-
+        binding.tvsignup .setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
+        }
     }
     override fun onResume(){
         super.onResume()
-        userViewModel.logInResponseLiveData.observe(this, Observer{LogInResponse->
-            saveLoginDetails(LogInResponse!!)
-            Toast.makeText(baseContext,LogInResponse?.message, Toast.LENGTH_LONG).show()
+        userViewModel.loginResponseLiveData.observe(this, Observer { loginResponse ->
+            saveLoginDetails(loginResponse!!)
+            Toast.makeText(baseContext,loginResponse?.message,Toast.LENGTH_LONG).show()
             startActivity(Intent(baseContext, HomeActivity::class.java))
             finish()
         })
-        userViewModel.errorLiveData.observe(this, Observer {errorMessage->
-            Toast.makeText(baseContext,errorMessage,Toast.LENGTH_LONG).show()
+        userViewModel.loginErrorLiveData.observe(this, Observer { error->
+            Toast.makeText(baseContext,error,Toast.LENGTH_LONG).show()
         })
     }
-
-
-
-
     fun validateLogin(){
         var error=false
         var password = binding.etpassword.text.toString()

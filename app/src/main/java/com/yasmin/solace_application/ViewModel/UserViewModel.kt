@@ -11,34 +11,34 @@ import com.yasmin.solace_application.models.RegisterResponse
 import kotlinx.coroutines.launch
 
 class UserViewModel:ViewModel() {
-    val userRepository = UserRepository()
-    val logInResponseLiveData = MutableLiveData<LoginResponse>()
-    val errorLiveData = MutableLiveData<String?>()
+   val userRepository = UserRepository()
+    val loginResponseLiveData = MutableLiveData<LoginResponse>()
+    val loginErrorLiveData = MutableLiveData<String?>()
+
     val registerResponseLiveData = MutableLiveData<RegisterResponse>()
-    val registererrorLiveData = MutableLiveData<String?>()
+    val registerErrorLiveData = MutableLiveData<String?>()
 
     fun loginUser(loginRequest: LoginRequest) {
         viewModelScope.launch {
-            val response = userRepository.loginUser(loginRequest)
+            val response = userRepository.login(loginRequest)
             if (response.isSuccessful) {
-                logInResponseLiveData.postValue(response.body())
+                loginResponseLiveData.postValue(response.body())
             } else {
-                val error =response. errorBody()?.string()
-                errorLiveData.postValue(error)
+                val error = response.errorBody()?.string()
+                loginErrorLiveData.postValue(error)
             }
         }
     }
-    fun registerUser(registerRequest: RegisterRequest) {
+
+    fun registerUser(RegisterRequest: RegisterRequest) {
         viewModelScope.launch {
-            val response = userRepository.registerUser(registerRequest)
+            val response = userRepository.register(RegisterRequest)
             if (response.isSuccessful) {
                 registerResponseLiveData.postValue(response.body())
+            } else {
+                val error = response.errorBody()?.string()
+                registerErrorLiveData.postValue(error)
             }
-                else{
-                    val error =response.errorBody()?.string()
-                registererrorLiveData.postValue(error)
-
-                }
         }
     }
 }

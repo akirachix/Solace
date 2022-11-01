@@ -7,3 +7,4 @@ data class User(
     @SerializedName("user_id")var userId:String,
     @SerializedName("email")var email:String,
 )
+

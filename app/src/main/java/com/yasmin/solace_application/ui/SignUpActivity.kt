@@ -1,9 +1,11 @@
 package com.yasmin.solace_application.ui
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.icu.util.MeasureUnit.EM
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.util.Patterns.EMAIL_ADDRESS
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -17,60 +19,58 @@ import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignUpBinding
+    lateinit var sharedPrefs: SharedPreferences
     val userViewModel:UserViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        sharedPrefs = getSharedPreferences("SOLACE_PREFS", MODE_PRIVATE)
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         binding.btnSignup.setOnClickListener {
             validateSignup()
         }
-
-        binding.btnSignup.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-
-        }
         binding.tvLogin.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
-
+    override fun onResume() {
+        super.onResume()
+        userViewModel.registerResponseLiveData.observe(this, Observer { registerResponse ->
+            Toast.makeText(baseContext,registerResponse?.message,Toast.LENGTH_LONG).show()
+            // intent to login
+            startActivity(Intent(this@SignUpActivity,LoginActivity::class.java))
+        })
+        userViewModel.registerErrorLiveData.observe(this, Observer { error->
+            Toast.makeText(baseContext,error,Toast.LENGTH_LONG).show()
+        })
+    }
     fun validateSignup() {
         var error = false
-        binding.tilName.error = null
-        binding.tilEmail.error = null
-        binding.tilPassword.error = null
-        binding.tilConfirm.error = null
-
         var name = binding.etName.text.toString()
+        var email = binding.etEmail.text.toString()
+        var confirm = binding.etConfirm.text.toString()
+        var password = binding.etPassword.text.toString()
+
         if (name.isBlank()) {
-            binding.tilName.error = "First name is required"
+            binding.tilName.error = "Your full name is required"
             error = true
         }
-
-
-        var Email = binding.etEmail.text.toString()
-        if (Email.isBlank()) {
+        if (email.isBlank()) {
             binding.tilEmail.error = "Email is required"
             error = true
         }
-//        if(!Pattern..matches()){
-//            binding.tilEmail.error= "Not a valid email address"
-//            error = true
-//        }
-
-        var password = binding.etPassword.text.toString()
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            binding.tilEmail.error = "Not valid email address"
+            error = true
+        }
         if (password.isBlank()) {
             binding.tilPassword.error = "Password is required"
             error = true
         }
-
-        var confirm = binding.etConfirm.text.toString()
         if (confirm.isBlank()) {
             binding.tilConfirm.error = "Confirmation is required"
             error = true
@@ -79,19 +79,9 @@ class SignUpActivity : AppCompatActivity() {
             binding.tilConfirm.error= "Password does not match"
         }
         if (!error) {
-            var registerRequest= RegisterRequest(name, Email,password)
+            var registerRequest= RegisterRequest(name, email,password)
             userViewModel.registerUser(registerRequest)
-
         }
     }
-    override fun onResume() {
-        super.onResume()
-        userViewModel.registerResponseLiveData.observe(this, Observer { RegisterResponse->
-            Toast.makeText(baseContext,RegisterResponse.message,Toast.LENGTH_LONG).show()
-            startActivity(Intent(this,LoginActivity::class.java))
-        })
-        userViewModel.registererrorLiveData.observe(this, Observer { error->
-            Toast.makeText(baseContext,error,Toast.LENGTH_LONG).show()
-        })
-    }
+
 }
