@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
     var retrofit = Retrofit.Builder()
-        .baseUrl(" http://127.0.0.1:8000")
+        .baseUrl( "https://solaceeapp.herokuapp.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     fun <T> buildApiClient(apiInterface: Class<T>): T {

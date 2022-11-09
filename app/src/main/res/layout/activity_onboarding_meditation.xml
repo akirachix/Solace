@@ -11,10 +11,10 @@
         android:layout_width="331dp"
         android:layout_height="323dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="160dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/meditation" />
@@ -35,7 +35,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="sans-serif-black"
-        android:text="Make Peace  With Mind, it's your best ally"
+        android:text="@string/make_peace_with_mind_it_s_your_best_ally"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,12 +45,10 @@
 
     <Button
         android:id="@+id/btnNEXT"
-        android:layout_width="181dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="#2D3194"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
         android:text="Next"
-        app:cornerRadius="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvtext2" />

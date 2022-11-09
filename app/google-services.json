@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "505142016132",
+    "project_id": "solace-application-996fd",
+    "storage_bucket": "solace-application-996fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505142016132:android:f6ee8754f7297a99132ad1",
+        "android_client_info": {
+          "package_name": "com.yasmin.solace_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505142016132-2k8birtd0hdjjcq492m7lef65q903ekv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzlARikLci15OHFb2eFP3kD9Lkguv2bY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505142016132-2k8birtd0hdjjcq492m7lef65q903ekv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
