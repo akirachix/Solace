@@ -34,7 +34,7 @@ class MeditationActivity : AppCompatActivity() {
 
 
 
-}
+    }
 
     private fun controlSound(id: Int) {
         binding.fabPlay.setOnClickListener{
@@ -78,5 +78,4 @@ class MeditationActivity : AppCompatActivity() {
     private fun initialiseSeekbar() {
         binding.seekbar.max = mp!!.duration
     }
-
 }
